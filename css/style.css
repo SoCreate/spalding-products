@@ -1,0 +1,315 @@
+:root {
+    --maxWidth: 80rem;
+    --padding: 2rem;
+    --background__gray--02: #ddd;
+    --borderRadius--01: 1em;
+    --borderRadius--02: 0.5em;
+}
+
+* {
+    box-sizing: border-box;
+    scrollbar-width: thin;
+}
+
+body {
+    background-color: #f5f5f5;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    color: #444;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+
+}
+
+header {
+    overflow: hidden;
+    padding-inline: var(--padding);
+    position: relative;
+
+
+    &::before {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 8em;
+        content: '';
+        background-color: var(--background__gray--02);
+    }
+
+    & > div {
+        background: white;
+        position: relative;
+        z-index: 1;
+        max-width: var(--maxWidth);
+        margin: 4em auto 0;
+        padding: var(--padding);
+        display: grid;
+        align-items: start;
+        grid-template-columns: min(20em, 33%) 1fr;
+        gap: 1.5em 2.5em;
+        border-radius: var(--borderRadius--01);
+    }
+
+    h1 {
+        font-size: clamp(1.0625rem, 3vw, 1.5rem);
+
+        margin: 0;
+        grid-column: 1;
+        grid-row: 1;
+        position: relative;
+        /* grid-column: 1 / 2; */
+        width: 100%;
+        /* top: var(--padding); */
+        color: white;
+        z-index: 1;
+        padding: 0.5em 0.8em;
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgb(0, 0, 0, 0.5);
+            z-index: -1;
+            border-radius: var(--borderRadius--02) var(--borderRadius--02) 0 0;
+        }
+
+    }
+
+    h2 {
+        font-size: clamp(1.3125rem, 4vw, 3rem);
+        align-self: center;
+        margin: 0;
+    }
+
+    img {
+        width: 100%;
+        grid-column: 1;
+        grid-row: 1;
+        border-radius: var(--borderRadius--02);
+    }
+
+}
+
+main {
+    background-color: white;
+    padding-inline: var(--padding);
+
+    & > ul {
+        max-width: var(--maxWidth);
+        margin: clamp(2em, 3vw, 4em) auto 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5em;
+        padding-block: clamp(2em, 3vw, 4em);
+        padding-inline-start: 0;
+        list-style-type: none;
+    }
+
+    li {
+        border: solid 1px #ddd;
+        display: grid;
+        grid-template-columns: min(14em, 33%) 1fr;
+        padding: var(--padding);
+        border-radius: 1em;
+        column-gap: clamp(0.875em, 3vw, 1.5em);
+        align-items: start;
+        grid-template-rows: min-content 1fr;
+
+        img {
+            width: 100%;
+            grid-row: 1 / 3;
+            border-radius: var(--borderRadius--02);
+        }
+
+        h4 {
+            margin: 0 0 0.25em;
+            font-size: clamp(1.0625rem, 3vw, 1.5rem);
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75em;
+        }
+
+        p {
+            margin: 0;
+            font-size: clamp(0.875rem, 1vw, 1.0625rem);
+        }
+
+    }
+
+}
+
+section {
+    padding-inline: var(--padding);
+
+    h3 {
+        margin: 0;
+        text-align: center;
+        font-size: clamp(1.3125rem, 3.5vw, 1.75rem);
+        margin-block: 4rem 2rem;
+    }
+
+}
+
+.investments {
+
+    ul{
+        display: flex;
+        justify-content: center;
+        gap: clamp(1em, 3vw, 2em);
+        max-width: var(--maxWidth);
+        margin-inline: auto;
+        padding-left: 0;
+    }
+
+    li {
+        list-style-type: none;
+        border-radius: 1em;
+        overflow: hidden;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        transition: filter 0.25s ease-in-out;
+
+        &:hover {
+            filter: drop-shadow(0 0 0.5rem rgb(0, 0, 0, 15%));
+        }
+
+        a {
+            padding: 0 2em;
+        }
+
+        span {
+            border: 0 !important;
+            clip: rect(1px, 1px, 1px, 1px);
+            height: 1px !important;
+            overflow: hidden;
+            padding: 0 !important;
+            position: absolute !important;
+            width: 1px !important;
+        }
+
+        img {
+            width: 100%;
+            max-width: 15em;
+        }
+
+    }
+
+}
+
+footer {
+    background-color: var(--background__gray--02);
+    margin-top: 6em;
+    padding-inline: var(--padding);
+
+    ul {
+        max-width: var(--maxWidth);
+        margin: 0 auto;
+        padding: 4em 0;
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        gap: 4em;
+    }
+
+    a {
+        color: #444;
+        text-decoration: none;
+        font-size: clamp(0.75rem, 4vw, 1.25rem);
+        transition: opacity 0.25s ease-in-out;
+        padding-left: 1.8em;
+
+        &:hover {
+            opacity: 0.6;
+        }
+
+    }
+
+    .phone a {
+        background: url(../assets/telephone-icon.svg) no-repeat;
+        background-size: contain;
+    }
+
+    .email a {
+        background: url(../assets/envelope-icon.svg) no-repeat;
+        background-size: contain;
+    }
+
+}
+
+@media (max-width: 1200px) {
+
+    :root {
+        --padding: 1.5rem;
+    }
+
+    header > div {
+        margin-top: var(--padding);
+    }
+
+}
+
+@media (max-width: 850px) {
+
+    main {
+
+        & > ul {
+            display: flex;
+            flex-direction: column;
+        }
+
+    }
+
+    footer {
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1em;
+        }
+
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    :root {
+        --padding: 1rem;
+    }
+
+    header {
+    
+        h1, img {
+            max-width: 16rem;
+            margin-inline: auto;
+        }
+
+        & > div {
+            grid-template-columns: auto;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+    }
+
+    .investments {
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+    }
+
+}
